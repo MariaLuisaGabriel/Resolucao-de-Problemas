@@ -1,6 +1,7 @@
 #include <iostream>
+#include <queue>
 
-void op1(int n,int **lib){
+int op1(int n,int **lib){
     int friends[4] = {0,0,0,0};
     int Max=0,f;
 
@@ -26,34 +27,17 @@ void op1(int n,int **lib){
             f=i;
         }
         else if(friends[i]==Max) {
-            Max=-1;
-            break;
+            return -1;
         }
     }
 
-    if(Max==-1) {
-        std::cout << "Nao eh possivel saber!" << std::endl;
-        return;
-    }
-    
-    switch(f){
-        case 0:
-            std::cout << "Joana" << std::endl;
-            break;
-        case 1:
-            std::cout << "Pedro" << std::endl;
-            break;
-        case 2:
-            std::cout << "Arthur" << std::endl;
-            break;
-        case 3:
-            std::cout << "Sabrina" << std::endl;
-            break;
-    }
+    return f;
 }
 
 int main(){
-    int N,Q,op;
+    int N,Q,op,f;
+    int i=0,j=0,x;
+    std::queue<int> q;
 
     //Recebendo os dados de entrada:
     std::cin >> N;
@@ -70,11 +54,32 @@ int main(){
 
     for(int k = 0; k<Q; k++){
         std::cin >> op;
-        if(op==1) op1(N,lib);
+        if(op==1) q.push(op1(N,lib));
         if(op==2) {
-            int i,j,x;
             std::cin >> i >> j >> x;
-            lib[i][j] = x;
+            lib[i-1][j-1] = x;
+        }
+    }
+
+    while(!q.empty()){
+        f = q.front();
+        q.pop();
+        switch(f){
+        case -1:
+            std::cout << "Nao eh possivel saber!" << std::endl;
+            break;
+        case 0:
+            std::cout << "Joana" << std::endl;
+            break;
+        case 1:
+            std::cout << "Pedro" << std::endl;
+            break;
+        case 2:
+            std::cout << "Arthur" << std::endl;
+            break;
+        case 3:
+            std::cout << "Sabrina" << std::endl;
+            break;
         }
     }
 
