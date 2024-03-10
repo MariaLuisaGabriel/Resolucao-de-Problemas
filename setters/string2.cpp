@@ -48,6 +48,7 @@ bool validate(string exp){
 
     if(parenthesis%2!=0 || chave%2!=0 || colchete%2!=0) return false;
     if(nro != op+1) return false;
+    if(nro==0) return false; //expressao sem nro é paia
 
     return true;
 }
@@ -59,3 +60,21 @@ int main(){
     else cout << "Invalida" << endl;
     return 0;
 }
+
+/*
+CASOS DE USO:
+
+entradas:
+((((((((((((((((((((2)-3)))))))))))))))))))
+(8]
+23+9+[8]
+(3-(2+(3(2(1)2)3)4)2)
+1+2+3+4+5+6+6+7+8+9+0+
+1+2+4*(4/5)+(9-0)
+1-2
+[2]+[3-4]
+{[{[{[{[{[{[{[{[{[]}]}]}]}]}]}]}]}]}
+
+saídas:
+
+*/
