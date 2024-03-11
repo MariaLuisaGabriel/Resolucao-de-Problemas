@@ -5,12 +5,13 @@
 #include <algorithm>
 using namespace std;
 
-bool decresc(int i, int j){
+bool decresc(double i, double j){
     return i>j;
 }
 
 int main(){
-    int n, m;
+    int n;
+    double m;
     vector<int> v;
     cin >> n;
     for(int i = 0; i<n; i++){
