@@ -40,8 +40,9 @@ int main(){
         if(corredor==0) break;
         scanf(" %[^\n]",nomeC);
         nome = nomeC;
+        index = findInPair(supermercado,corredor);
 
-        if(index = findInPair(supermercado,corredor)!=-1){
+        if(index!=-1){
             supermercado.at(index).second.push_back(nome);
         }
         else{
