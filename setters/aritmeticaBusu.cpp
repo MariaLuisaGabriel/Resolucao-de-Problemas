@@ -8,7 +8,7 @@ using namespace std;
 
 int mdc(int a, int b){
     if(b==0) return a;
-    mdc(b,a%b);
+    return mdc(b,a%b);
 }
 
 int mmc(int a, int b){
