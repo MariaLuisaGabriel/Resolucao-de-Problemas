@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <cstdio>
+#include <iomanip>
 #include <utility>
 using namespace std;
 
@@ -24,7 +25,7 @@ int main(){
     }
 
     for(auto i : v){
-        cout << i << endl;
+        cout << fixed << setprecision(2) << i << endl;
     }
 
     return 0;
