@@ -6,15 +6,15 @@
 #include <utility>
 using namespace std;
 
-int fat(int i){
+long long int fat(long long int i){
     if(i==0) return 1;
-    
+
     return i*fat(i-1);
 }
 
 int main(){
-    int n;
-    cin >> n;
-    cout << fat(n-1) << endl;
+    long long int n,m;
+    cin >> n >> m;
+    cout << fat(n-1) - (m*fat(n-m)) << endl;
     return 0;
 }
