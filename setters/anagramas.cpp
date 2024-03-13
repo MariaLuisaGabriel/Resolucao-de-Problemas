@@ -6,15 +6,15 @@
 #include <map>
 using namespace std;
 
-long int fat(long int i){
+long long int fat(long long int i){
     if(i==0) return 1;
-    
+
     return i*fat(i-1);
 }
 
-long int permute(map<char,int> m, int strSize){
-    long int total = fat(strSize);
-    long int repeticoes = 1;
+long long int permute(map<char,int> m, int strSize){
+    long long int total = fat(strSize);
+    long long int repeticoes = 1;
     for(auto i: m){
         if(i.second>1){
             repeticoes*=fat(i.second);
@@ -27,7 +27,7 @@ long int permute(map<char,int> m, int strSize){
 int main(){
     int n;
     string str;
-    vector<long int> resp;
+    vector<long long int> resp;
     map<char,int> m;
 
     cin >> n;
